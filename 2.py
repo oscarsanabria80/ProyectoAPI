@@ -1,8 +1,10 @@
 import requests
 import json
+import os
 
 def continentes():
-    url ='https://api.soccersapi.com/v2.2/continents/?user=oscar.poncedeleonsanabria80&token=514efe4a99c6e66e68561b915fb4c0e4&t=list'
+    key=os.environ["key"]
+    url = "https://api.soccersapi.com/v2.2/continents/?user=oscar.poncedeleonsanabria80&token="+key+"&t=list"
 
     r= requests.get(url)
     j =r.json()

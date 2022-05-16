@@ -1,8 +1,10 @@
 import requests
 import json
+import os
 
 def equipo():
-    url ='https://api.soccersapi.com/v2.2/teams/?user=oscar.poncedeleonsanabria80&token=514efe4a99c6e66e68561b915fb4c0e4&t=list&country_id=3'
+    key=os.environ["key"]
+    url ="https://api.soccersapi.com/v2.2/teams/?user=oscar.poncedeleonsanabria80&token="+key+"&t=list&country_id=3"
 
     r= requests.get(url)
     j =r.json()
