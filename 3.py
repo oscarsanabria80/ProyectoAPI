@@ -9,8 +9,10 @@ def equipo():
     r= requests.get(url)
     j =r.json()
     print("EQUIPOS DE LA LIGA INGLESA")
-    for i in j["data"]:
-        if i["name"]:
-         print (i["name"])
+    if r.status_code ==200:
+
+        for i in j["data"]:
+            if i["name"]:
+                print (i["name"])
     
 equipo()

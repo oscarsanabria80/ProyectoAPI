@@ -8,9 +8,10 @@ def continentes():
 
     r= requests.get(url)
     j =r.json()
+    if r.status_code ==200:
 
-    for i in j["data"]:
-        if i["name"]:
-         print ("Los continentes del Mundo:", i["name"])
+        for i in j["data"]:
+            if i["name"]:
+                print ("Los continentes del Mundo:", i["name"])
     
 continentes()
