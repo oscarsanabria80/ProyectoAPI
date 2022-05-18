@@ -4,15 +4,20 @@ import os
 
 
 def apuesta():
-    key=os.environ["key"]
-    url = "https://api.soccersapi.com/v2.2/bookmakers/?user=oscar.poncedeleonsanabria80&token="+key+"&t=list"
+    base="https://api.soccersapi.com/v2.2/"
 
-    r= requests.get(url)
+    key=os.environ["key"]
+
+    usuario=os.environ["usuario"]
+
+    parametros={'token':key,'user':usuario,'t':"list"}
+
+    r=requests.get(base+'bookmakers/',params=parametros)
     j =r.json()
 
     if "data" in j:
+        print("Casa de apuesta:")
         for i in j["data"]:
-
-            print("Casa de apuesta:", i["name"])
+            print(i["name"])
     
 apuesta()

@@ -2,14 +2,20 @@ import requests
 import json
 import os
 
-def continentes():
-    key=os.environ["key"]
-    url = "https://api.soccersapi.com/v2.2/continents/?user=oscar.poncedeleonsanabria80&token="+key+"&t=list"
 
-    r= requests.get(url)
+def continentes():
+    base="https://api.soccersapi.com/v2.2/"
+
+    key=os.environ["key"]
+
+    usuario=os.environ["usuario"]
+
+    parametros={'token':key,'user':usuario,'t':"list"}
+
+    r=requests.get(base+'continents/',params=parametros)
+
     j =r.json()
     if r.status_code ==200:
-
         for i in j["data"]:
             if i["name"]:
                 print ("Los continentes del Mundo:", i["name"])
