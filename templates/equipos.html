@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block contenido %}
+
+<body>
+
+	<h1>CASAS DE APUESTAS</h1>
+		
+<div>
+	<form method="post" action="#">
+
+	<div>
+		<input type="text" name="name" placeholder="nombre del juego" value="Casas de APUESTAS" />
+		<select >
+			{% if marcas %}
+			<option>Todos</option>
+			{% for elem in marcas -%}
+				{% if elem == marcas %}
+			<option value= "{{elem}}" selected="selected">{{elem}}</option>
+			{% else %}
+			<option value= "{{elem}}">{{elem}}</option>
+				{% endif %}
+			{% endfor -%}
+			{% endif %}
+		</select>
+		
+	</div>
+		<li><input type="submit" value="Buscar" class="special" /></li>
+	</form>
+	
+</body>
+{% endblock %}
+
